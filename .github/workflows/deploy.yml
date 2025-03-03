@@ -2,7 +2,8 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: ['main'] # 如果你的默认分支不是 main，请修改这里
+    branches: ['main']
+
   workflow_dispatch:
 
 permissions:
@@ -30,22 +31,14 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: |
-          # 如果你的项目文件不在根目录，需要先 cd 到项目目录
-          # cd website
-          npm install
+        run: npm install
       - name: Build
-        run: |
-          # 如果你的项目文件不在根目录，需要先 cd 到项目目录
-          # cd website
-          npm ci && CI=false npm run build
+        run: npm ci && npm run build
         env:
-          # 如果你的 URL 从根目录开始，则设置为 /，否则设置为你的子目录，如 /website
-          PUBLIC_URL: /
+          PUBLIC_URL: /ygp
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          # 如果你的项目文件不在根目录，请修改这里为项目的 build 目录，如 './website/build'
           path: './build'
 
   deploy:
@@ -57,5 +50,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v2
 
