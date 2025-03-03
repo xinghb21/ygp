@@ -43,7 +43,7 @@ jobs:
           # 如果你的 URL 从根目录开始，则设置为 /，否则设置为你的子目录，如 /website
           PUBLIC_URL: /
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           # 如果你的项目文件不在根目录，请修改这里为项目的 build 目录，如 './website/build'
           path: './build'
