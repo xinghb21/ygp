@@ -9,6 +9,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: 'pages'
@@ -38,8 +39,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
-          name: build
-          verbose: true
 
   deploy:
     runs-on: ubuntu-latest
