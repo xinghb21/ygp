@@ -2,6 +2,7 @@
   "name": "ygp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://xinghb21.github.io/ygp",
   "dependencies": {
     "@ant-design/pro-components": "^2.8.6",
     "@testing-library/dom": "^10.4.0",
